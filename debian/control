@@ -1,0 +1,30 @@
+Source: revpi-sos-report
+Section: admin
+Priority: optional
+Maintainer: KUNBUS GmbH <support@kunbus.com>
+Homepage: https://revolutionpi.com
+Vcs-Browser: https://github.com/RevolutionPi/revpi-sos-report/tree/raspios/bullseye
+Vcs-Git: https://github.com/RevolutionPi/revpi-sos-report.git -b raspios/bullseye
+Rules-Requires-Root: no
+Build-Depends:
+  debhelper-compat (= 13),
+  dh-python,
+  python3-dev,
+  cmake
+Standards-Version: 4.5.1
+
+Package: revpi-sos-report
+Architecture: all
+Recommends: python3-revpi-device-info
+Depends:
+  python3,
+  sosreport,
+  sudo,
+  ${misc:Depends},
+  ${python3:Depends}
+Description: Revolution Pi SOS Report
+ SOS report plugin to collect Revolution Pi related system information
+ which can be submitted to KUNBUS as part of a support request
+ .
+ Revolution Pi is a set of IoT products based on the Raspberry Pi and
+ geared towards industrial usage.
