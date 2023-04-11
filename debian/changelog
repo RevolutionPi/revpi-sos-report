@@ -1,0 +1,8 @@
+revpi-sos-report (1.0.0-1+revpi11+1) bullseye; urgency=medium
+
+  [ Nicolai Buchwitz ]
+  * Add license
+  * Add RevPi SOS report plugins
+  * Add debianization
+
+ -- Nicolai Buchwitz <n.buchwitz@kunbus.com>  Tue, 11 Apr 2023 17:21:32 +0200
