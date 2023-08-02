@@ -6,10 +6,11 @@
 #
 
 sos_tmp_dir=/tmp
+sos_owner=$USER
 ret=1
 force=0
 
-while getopts ":fhd:" OPTION; do
+while getopts ":fhd:o:" OPTION; do
 	case ${OPTION} in
 	f)
 		force=1
@@ -17,12 +18,16 @@ while getopts ":fhd:" OPTION; do
 	d)
 		sos_tmp_dir="$OPTARG"
 		;;
+	o)
+		sos_owner="$OPTARG"
+		;;
 	h)
 		ret=0
 		;&
 	*)
 		echo "Usage: revpi-sos [OPTION...]"
 		echo "	-d	DIRECTORY Specify target directory for generated report. If omitted /tmp is used"
+		echo "	-o	USER[:GROUP]	Specify name or uid of user and/or group that will be made owner of generated report."
 		echo "	-f	execute without confirmation"
 		echo "	-h	give this help list"
 		exit $ret
@@ -34,6 +39,7 @@ done
 timestamp=$(date +"%s")
 sos_tmp_dir="$sos_tmp_dir/revpi-sos-$timestamp"
 sudo mkdir -p "$sos_tmp_dir"
+sudo chown -R "$sos_owner" "$sos_tmp_dir"
 
 if [ "$force" != "1" ]; then
 	read -rp "The report will be generated under folder $sos_tmp_dir in a .tar.xz file, which
@@ -59,7 +65,7 @@ printReportFile(){
 
 if [ "$force" != "1" ]; then
 	read -rp "To make the report have better accessibility, the ownership of the report
-can be changed to the current user.
+can be changed to the current user by inheriting ownership from the containing folder.
 Are you going to proceed(N/y)?" -n 1 t_ant
 	if [ "$t_ant" != "y" ] && [ "$t_ant" != "Y" ]; then
 		printReportFile
@@ -68,6 +74,6 @@ Are you going to proceed(N/y)?" -n 1 t_ant
 	echo
 fi
 
-sudo chown "$USER" "$sos_file"
-echo "The ownership of $sos_file has been changed to user: $USER"
+sudo chown -R --reference="$sos_tmp_dir" "$sos_file"*
+echo "The ownership has been inherited from the containing folder $sos_tmp_dir"
 printReportFile
