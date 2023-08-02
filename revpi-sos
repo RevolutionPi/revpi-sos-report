@@ -5,29 +5,38 @@
 # Copyright 2020-2023 KUNBUS GmbH
 #
 
+sos_tmp_dir=/tmp
 ret=1
 force=0
 
-while getopts ":fh" OPTION; do
+while getopts ":fhd:" OPTION; do
 	case ${OPTION} in
 	f)
 		force=1
+		;;
+	d)
+		sos_tmp_dir="$OPTARG"
 		;;
 	h)
 		ret=0
 		;&
 	*)
 		echo "Usage: revpi-sos [OPTION...]"
-		echo "  -f	execute without confirmation"
-		echo "  -h	give this help list"
+		echo "	-d	DIRECTORY Specify target directory for generated report. If omitted /tmp is used"
+		echo "	-f	execute without confirmation"
+		echo "	-h	give this help list"
 		exit $ret
 		;;
 	esac
 
 done
 
+timestamp=$(date +"%s")
+sos_tmp_dir="$sos_tmp_dir/revpi-sos-$timestamp"
+sudo mkdir -p "$sos_tmp_dir"
+
 if [ "$force" != "1" ]; then
-	read -rp "The report will be generated under folder /tmp in a .tar.xz file, which
+	read -rp "The report will be generated under folder $sos_tmp_dir in a .tar.xz file, which
 can be extracted with command: tar -Jxvf xxx.tar.xz in linux or 7zip in Windows.
 And then some inspection can be done before it is sent to support@kunbus.com.
 Are you going to continue (N/y)?" -n 1 t_ant
@@ -40,7 +49,8 @@ Are you going to continue (N/y)?" -n 1 t_ant
 fi
 
 echo "report generating..."
-SOSFILE=$(sudo sos report -o revpi,revpi-eep,revpi-codesys --batch | grep "/tmp/sosreport" | sed -e 's/^[ \t]*//')
+sudo sos report -o revpi,revpi-eep,revpi-codesys --batch --tmp-dir "$sos_tmp_dir" >/dev/null
+SOSFILE=$(ls "$sos_tmp_dir"/*.tar.xz)
 echo
 echo "Your report has been generated and saved in:"
 echo "$SOSFILE"
