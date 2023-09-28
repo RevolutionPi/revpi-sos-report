@@ -1,0 +1,9 @@
+include:
+  - project: "revolutionpi/infrastructure/ci-templates"
+    file: "/package-build-raspios.yml"
+
+build-packages:
+  parallel:
+    matrix:
+      - ARCH: [armhf, arm64]
+        RELEASE: [bookworm]
