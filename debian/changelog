@@ -1,3 +1,18 @@
+revpi-sos-report (1.1.0-1+revpi11+1) bullseye; urgency=medium
+
+  [ Nicolai Buchwitz ]
+  * Add debianization
+  * Release revpi-sos-report 1.0.0-1 package
+  * feat: Add control log path for SP19
+
+  [ Thomas Böhler ]
+  * chore: Add move to GitLab to README
+
+  [ Nicolai Buchwitz ]
+  * ci: Add gitlab pipeline
+
+ -- Nicolai Buchwitz <n.buchwitz@kunbus.com>  Wed, 04 Oct 2023 23:08:53 +0200
+
 revpi-sos-report (1.0.0-1+revpi11+1) bullseye; urgency=medium
 
   [ Nicolai Buchwitz ]
