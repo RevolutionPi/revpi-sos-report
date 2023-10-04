@@ -30,6 +30,7 @@ class RevPiCodesys(Plugin, DebianPlugin):
                 "/etc/CODESYSControl.cfg",
                 "/etc/CODESYSControl_User.cfg",
                 "/tmp/codesyscontrol.log",
+                "/var/opt/codesys/codesyscontrol.log",
             ]
         )
 
