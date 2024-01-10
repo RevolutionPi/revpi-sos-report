@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: KUNBUS GmbH <support@kunbus.com>
 Homepage: https://revolutionpi.com
 Vcs-Browser: https://gitlab.com/revolutionpi/revpi-sos-report
-Vcs-Git: https://gitlab.com/revolutionpi/revpi-sos-report.git -b raspios/bookworm
+Vcs-Git: https://gitlab.com/revolutionpi/revpi-sos-report.git -b debian/bookworm
 Rules-Requires-Root: no
 Build-Depends:
   debhelper-compat (= 13),
