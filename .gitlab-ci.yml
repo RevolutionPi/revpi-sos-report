@@ -6,6 +6,6 @@ include:
     file: "/package-build-raspios-snapshot.yml"
   - local: debian/gitlab-ci.yml
     rules:
-      - if: $CI_COMMIT_BRANCH =~ /^raspios\/.*/
+      - if: $CI_COMMIT_BRANCH =~ /^debian\/.*/
       - exists:
           - debian/gitlab-ci.yml
