@@ -1,8 +1,8 @@
 include:
   - project: "revolutionpi/infrastructure/ci-templates"
-    file: "/package-build-raspios.yml"
+    file: "/package-release-debian.yml"
 
-build-packages:
+build-package:
   parallel:
     matrix:
       - ARCH: [armhf, arm64]
