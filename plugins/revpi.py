@@ -58,7 +58,8 @@ class RevPi(Plugin, DebianPlugin):
                 "apt-cache show raspberrypi-kernel",
                 "netstat -ln",
                 "vcgencmd version",
-                "modinfo piControl"
+                "modinfo piControl",
+                "cat /sys/devices/system/cpu/cpu?/cpufreq/scaling_governor",
             ]
         )
 
