@@ -1,3 +1,18 @@
+revpi-sos-report (1.2.0-1+revpi11+1) bullseye; urgency=medium
+
+  [ Nicolai Buchwitz ]
+  * feat: Add piControl information to sos report
+  * ci: Fix snapshot pipeline
+  * feat: Add cpufreq governor to sos commands
+  * fix: Ensure all RS485 interfaces are found
+
+  [ Sven Sager ]
+  * style: Insert space after user questions
+  * fix: Get name of report regardless of the /tmp folder
+  * feat: Include cache info about cockpit-revpi package
+
+ -- Sven Sager <s.sager@kunbus.com>  Tue, 09 Jul 2024 14:52:28 +0200
+
 revpi-sos-report (1.1.0-1+revpi11+1) bullseye; urgency=medium
 
   [ Nicolai Buchwitz ]
