@@ -46,8 +46,8 @@ class RevPi(Plugin, DebianPlugin):
                 "uname -a",
                 "piTest -d",
                 "ps -ax",
-                "ls /dev/ttyUSB*",
-                "ls /dev/ttyRS485",
+                "ls -l /dev/ttyUSB*",
+                "ls -l /dev/ttyRS485*",
                 "ls -l /etc/revpi/config.rsc",
                 "vcgencmd measure_temp",
                 "vcgencmd measure_clock arm",
@@ -55,9 +55,12 @@ class RevPi(Plugin, DebianPlugin):
                 "free",
                 "apt-cache show pictory",
                 "apt-cache show revpi-webstatus",
+                "apt-cache show cockpit-revpi",
                 "apt-cache show raspberrypi-kernel",
                 "netstat -ln",
                 "vcgencmd version",
+                "modinfo piControl",
+                "cat /sys/devices/system/cpu/cpu?/cpufreq/scaling_governor",
             ]
         )
 
