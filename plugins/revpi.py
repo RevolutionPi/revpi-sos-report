@@ -55,6 +55,7 @@ class RevPi(Plugin, DebianPlugin):
                 "free",
                 "apt-cache show pictory",
                 "apt-cache show revpi-webstatus",
+                "apt-cache show cockpit-revpi",
                 "apt-cache show raspberrypi-kernel",
                 "netstat -ln",
                 "vcgencmd version",
