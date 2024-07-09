@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: GPL-2.0
 #
-# Copyright 2020-2023 KUNBUS GmbH
+# Copyright 2020-2024 KUNBUS GmbH
 #
 
 ret=1
@@ -27,10 +27,11 @@ while getopts ":fh" OPTION; do
 done
 
 if [ "$force" != "1" ]; then
-	read -rp "The report will be generated under folder /tmp in a .tar.xz file, which
+	read -rp "The report will be generated as a compressed TAR file, which
 can be extracted with command: tar -Jxvf xxx.tar.xz in linux or 7zip in Windows.
 And then some inspection can be done before it is sent to support@kunbus.com.
-Are you going to continue (N/y)?" -n 1 t_ant
+
+Are you going to continue (N/y)? " -n 1 t_ant
 
 	if [ "$t_ant" != "y" ] && [ "$t_ant" != "Y" ]; then
 		echo
@@ -40,7 +41,7 @@ Are you going to continue (N/y)?" -n 1 t_ant
 fi
 
 echo "report generating..."
-SOSFILE=$(sudo sos report -o revpi,revpi-eep,revpi-codesys --batch | grep "/tmp/sosreport" | sed -e 's/^[ \t]*//')
+SOSFILE=$(sudo sos report -o revpi,revpi-eep,revpi-codesys --batch | grep "/sosreport-.*\.tar" | sed -e 's/^[ \t]*//')
 echo
 echo "Your report has been generated and saved in:"
 echo "$SOSFILE"
@@ -49,7 +50,8 @@ echo
 if [ "$force" != "1" ]; then
 	read -rp "To make the report have better accessibility, the ownership of the report
 can be changed to the current user.
-Are you going to proceed(N/y)?" -n 1 t_ant
+
+Are you going to proceed(N/y)? " -n 1 t_ant
 	if [ "$t_ant" != "y" ] && [ "$t_ant" != "Y" ]; then
 		echo
 		exit 0
