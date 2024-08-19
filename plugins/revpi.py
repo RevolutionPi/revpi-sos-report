@@ -53,7 +53,6 @@ class RevPi(Plugin, DebianPlugin):
                 "lsusb -v",
                 "free",
                 "apt-cache show pictory",
-                "apt-cache show revpi-webstatus",
                 "apt-cache show cockpit-revpi",
                 "apt-cache show linux-image-revpi-v8",
                 "netstat -ln",
