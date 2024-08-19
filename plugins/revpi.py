@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2020-2023 KUNBUS GmbH
+# SPDX-FileCopyrightText: 2020-2024 KUNBUS GmbH
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 #
@@ -25,7 +25,7 @@ class RevPi(Plugin, DebianPlugin):
     def setup(self):
         self.add_copy_spec(
             [
-                "/var/log/messages",
+                "/var/log/syslog",
                 "/var/log/apache2/error.log",
                 "/var/log/kern.log",
                 "/var/log/daemon.log",
