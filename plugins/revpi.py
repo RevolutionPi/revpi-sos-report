@@ -53,6 +53,7 @@ class RevPi(Plugin, DebianPlugin):
                 "vcgencmd measure_clock arm",
                 "lsusb -v",
                 "free",
+                "apt-cache show picontrol",
                 "apt-cache show pictory",
                 "apt-cache show cockpit-revpi",
                 "apt-cache show linux-image-revpi-v8",
