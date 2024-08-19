@@ -35,6 +35,7 @@ class RevPi(Plugin, DebianPlugin):
                 "/etc/revpi/image-release",
                 "/etc/dhcpcd.conf",
                 "/etc/network/interfaces",
+                "/etc/network/interfaces.d/*",
                 "/etc/resolv.conf",
                 "/sys/class/net/*/carrier",
                 "/sys/class/net/*/speed",
