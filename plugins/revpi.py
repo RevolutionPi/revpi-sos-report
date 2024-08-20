@@ -28,7 +28,6 @@ class RevPi(Plugin, DebianPlugin):
                 "/var/log/syslog",
                 "/var/log/apache2/error.log",
                 "/var/log/kern.log",
-                "/var/log/daemon.log",
                 "/etc/revpi/config.rsc",
                 "/boot/cmdline.txt",
                 "/boot/config.txt",
