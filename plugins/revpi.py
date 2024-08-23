@@ -52,6 +52,7 @@ class RevPi(Plugin, DebianPlugin):
                 "ls -l /etc/revpi/config.rsc",
                 "vcgencmd measure_temp",
                 "vcgencmd measure_clock arm",
+                "journalctl --no-pager -u cockpit",
                 "lsusb -v",
                 "free",
                 "apt-cache show picontrol",
