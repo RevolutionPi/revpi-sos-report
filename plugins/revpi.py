@@ -27,6 +27,7 @@ class RevPi(Plugin, DebianPlugin):
             [
                 "/var/log/syslog",
                 "/var/log/apache2/error.log",
+                "/var/log/apache2/revpi-*-error.log",
                 "/var/log/kern.log",
                 "/etc/revpi/config.rsc",
                 "/boot/firmware/cmdline.txt",
