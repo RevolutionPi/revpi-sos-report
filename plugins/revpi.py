@@ -63,6 +63,8 @@ class RevPi(Plugin, DebianPlugin):
                 "apt-cache show linux-image-revpi-v8",
                 "netstat -ln",
                 "rpi-eeprom-update",
+                "vclog -a",
+                "vclog -m",
                 "vcgencmd version",
                 "modinfo piControl",
                 "cat /sys/devices/system/cpu/cpu?/cpufreq/scaling_governor",
