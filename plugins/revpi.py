@@ -1,7 +1,7 @@
 #
-# SPDX-License-Identifier: GPL-2.0
+# SPDX-FileCopyrightText: 2020-2024 KUNBUS GmbH
 #
-# Copyright 2020-2023 KUNBUS GmbH
+# SPDX-License-Identifier: GPL-2.0-or-later
 #
 
 
@@ -25,16 +25,18 @@ class RevPi(Plugin, DebianPlugin):
     def setup(self):
         self.add_copy_spec(
             [
-                "/var/log/messages",
+                "/var/log/syslog",
                 "/var/log/apache2/error.log",
+                "/var/log/apache2/revpi-*-error.log",
                 "/var/log/kern.log",
-                "/var/log/daemon.log",
                 "/etc/revpi/config.rsc",
-                "/boot/cmdline.txt",
-                "/boot/config.txt",
+                "/boot/firmware/cmdline.txt",
+                "/boot/firmware/config.txt",
+                "/etc/default/rpi-eeprom-update",
                 "/etc/revpi/image-release",
                 "/etc/dhcpcd.conf",
                 "/etc/network/interfaces",
+                "/etc/network/interfaces.d/*",
                 "/etc/resolv.conf",
             ]
         )
@@ -51,13 +53,18 @@ class RevPi(Plugin, DebianPlugin):
                 "ls -l /etc/revpi/config.rsc",
                 "vcgencmd measure_temp",
                 "vcgencmd measure_clock arm",
+                "journalctl --no-pager -u cockpit",
                 "lsusb -v",
                 "free",
+                "apt-cache show picontrol",
                 "apt-cache show pictory",
-                "apt-cache show revpi-webstatus",
+                "apt-cache show rpi-eeprom",
                 "apt-cache show cockpit-revpi",
-                "apt-cache show raspberrypi-kernel",
+                "apt-cache show linux-image-revpi-v8",
                 "netstat -ln",
+                "rpi-eeprom-update",
+                "vclog -a",
+                "vclog -m",
                 "vcgencmd version",
                 "modinfo piControl",
                 "cat /sys/devices/system/cpu/cpu?/cpufreq/scaling_governor",

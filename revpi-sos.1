@@ -1,5 +1,5 @@
 .\"                                      Hey, EMACS: -*- nroff -*-
-.\" (C) Copyright 2016-2023 KUNBUS GmbH
+.\" (C) Copyright 2016-2024 KUNBUS GmbH
 .\"
 .\" First parameter, NAME, should be all caps
 .\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
@@ -28,19 +28,21 @@ base on sosreport(1) to collect the needed information for debugging.
 .TP
 The information includes following files:
 .br
-/var/log/messages
+/var/log/syslog
 .br
 /var/log/kern.log
 .br
-/var/log/daemon.log
-.br
 /var/log/apache2/error.log
+.br
+/var/log/apache2/revpi-*-error.log
 .br
 /var/www/pictory/projects/_config.rsc
 .br
-/boot/cmdline.txt
+/boot/firmware/cmdline.txt
 .br
-/boot/config.txt
+/boot/firmware/config.txt
+.br
+/etc/default/rpi-eeprom-update
 .br
 /etc/dhcpcd.conf
 .br
@@ -49,6 +51,8 @@ The information includes following files:
 /etc/revpi/image-release
 .br
 /etc/network/interfaces
+.br
+/etc/network/interfaces.d/*
 .TP
 and output of following commands:
 .br
@@ -66,13 +70,19 @@ lsusb -v
 .br
 free
 .br
+apt-cache show picontrol
+.br
 apt-cache show pictory
 .br
-apt-cache show revpi-webstatus
+apt-cache show rpi-eeprom
 .br
-apt-cache show raspberrypi-kernel
+apt-cache show linux-image-revpi-v8
 .br
 netstat -ln
+.br
+rpi-eeprom-update
+.br
+vclog -a, vclog -m
 .br
 ls /dev/ttyUSB*
 .br
@@ -81,6 +91,8 @@ ls /dev/ttyRS485
 ls -l /etc/revpi/config.rsc
 .br
 vcgencmd version
+.br
+journalctl --no-pager -u cockpit
 .br
 vcgencmd measure_temp
 .br

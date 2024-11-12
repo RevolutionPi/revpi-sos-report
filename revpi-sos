@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-# SPDX-License-Identifier: GPL-2.0
+# SPDX-FileCopyrightText: 2020-2024 KUNBUS GmbH
 #
-# Copyright 2020-2024 KUNBUS GmbH
+# SPDX-License-Identifier: GPL-2.0-or-later
 #
 
 ret=1
