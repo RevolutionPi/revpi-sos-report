@@ -1,3 +1,27 @@
+revpi-sos-report (2.0.0-1+deb12+1) bookworm; urgency=medium
+
+  [ Thomas Böhler ]
+  * chore: achieve REUSE compliance
+  * ci: Lint REUSE
+  * ci: Lint commits
+
+  [ Ahmad Arabi Katbi ]
+  * feat!: Change log file from messages to syslog
+  * feat!: Remove daemon.log
+  * feat!: Rename raspberrypi-kernel to linux-image..
+  * feat!: Remove revpi-webstatus
+  * feat!: Change boot partition to boot/firmware
+  * feat: Collect info of all files in `interfaces.d`
+  * feat: Collect infos about the piControl package
+  * feat: Collect info about apache server
+  * feat: Collect info about cockpit
+
+  [ Sven Sager ]
+  * feat: Add rpi-eeprom information to report
+  * feat: Add VideoCore information to sos report
+
+ -- Sven Sager <s.sager@kunbus.com>  Tue, 12 Nov 2024 08:33:01 +0100
+
 revpi-sos-report (1.2.0-1+deb12+1) bookworm; urgency=medium
 
   [ Philipp Rosenberger ]
