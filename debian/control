@@ -7,10 +7,10 @@ Vcs-Browser: https://gitlab.com/revolutionpi/revpi-sos-report
 Vcs-Git: https://gitlab.com/revolutionpi/revpi-sos-report.git -b debian/bookworm
 Rules-Requires-Root: no
 Build-Depends:
+  cmake,
   debhelper-compat (= 13),
   dh-python,
   python3-dev,
-  cmake,
   scdoc,
 Standards-Version: 4.6.2
 
