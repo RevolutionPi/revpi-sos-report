@@ -5,7 +5,20 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 #
 
-ret=1
+usage() {
+	cat <<- __EOF__
+	usage: $(basename $0) [-f]
+
+	Generate an archive of useful information for debugging.
+
+	Options:
+	  -f    Skip user interaction
+	  -h    Show this help
+	__EOF__
+
+	exit ${1:-0}
+}
+
 force=0
 
 while getopts ":fh" OPTION; do
@@ -14,13 +27,10 @@ while getopts ":fh" OPTION; do
 		force=1
 		;;
 	h)
-		ret=0
-		;&
+		usage
+		;;
 	*)
-		echo "Usage: revpi-sos [OPTION...]"
-		echo "  -f	execute without confirmation"
-		echo "  -h	give this help list"
-		exit $ret
+		usage 1 >&2
 		;;
 	esac
 
