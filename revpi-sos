@@ -28,7 +28,7 @@ done
 
 if [ "$force" != "1" ]; then
 	read -rp "The report will be generated as a compressed TAR file, which
-can be extracted with command: tar -Jxvf xxx.tar.xz in linux or 7zip in Windows.
+can be extracted with command: tar -zxvf xxx.tar.gz in linux or 7zip in Windows.
 And then some inspection can be done before it is sent to support@kunbus.com.
 
 Are you going to continue (N/y)? " -n 1 t_ant
