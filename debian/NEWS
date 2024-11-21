@@ -1,0 +1,13 @@
+revpi-sos-report (2.1.0-1+deb12+1) bookworm; urgency=medium
+
+  New CODESYSControl configuration files are now collected as well.
+
+  There was some information missing in the man page for revpi-sos so it was
+  edited to include more information about revpi-sos, like how it works, as
+  well as further explanation of what it is for, where it should be sent and
+  when, and examples about how to check the content of the resulting archive.
+
+  The info messages of revpi-sos have been improved to be more grammatically
+  correct.
+
+ -- Thomas Böhler <t.boehler@kunbus.com>  Thu, 21 Nov 2024 17:10:24 +0100
