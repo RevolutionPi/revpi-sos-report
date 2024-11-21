@@ -1,3 +1,22 @@
+revpi-sos-report (2.1.0-1+deb12+1) bookworm; urgency=medium
+
+  [ Amar Jadhav ]
+  * feat: Add new CODESYSControl configuration path
+
+  [ Thomas Böhler ]
+  * doc: rewrite man page with scdoc
+  * doc: rewrite revpi-sos man page
+  * fix: give example for unpacking report with gzip
+  * refactor: add usage function
+  * refactor: upper case globals
+  * fix: improve grammar of info messages
+  * fix: abort if report can't be generated
+  * feat(deb): add scdoc to Build-Depends
+  * refactor(deb): order Build-Depends alphabetically
+  * doc(debian): update NEWS
+
+ -- Thomas Böhler <t.boehler@kunbus.com>  Thu, 21 Nov 2024 17:14:42 +0100
+
 revpi-sos-report (2.0.0-1+deb12+1) bookworm; urgency=medium
 
   [ Thomas Böhler ]
