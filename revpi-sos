@@ -33,15 +33,17 @@ while getopts ":fh" opt; do
 		usage 1 >&2
 		;;
 	esac
-
 done
 
-if [ "$FORCE" != "1" ]; then
-	read -rp "The report will be generated as a compressed TAR file, which
-can be extracted with command: tar -zxvf xxx.tar.gz in linux or 7zip in Windows.
-And then some inspection can be done before it is sent to support@kunbus.com.
+cat <<- __EOF__
+The generated report will be a compressed TAR. This can be extracted with
+the command "tar -zxvf /path/to/sos-report.gar.gz" on Linux or using the
+program "7zip" on Windows.
+This archive can be inspected before sending it to support@kunbus.com
+__EOF__
 
-Are you going to continue (N/y)? " -n 1 t_ant
+if [ "$FORCE" != "1" ]; then
+	read -rn1 -p "Continue? (y/N)" t_ant
 
 	if [ "$t_ant" != "y" ] && [ "$t_ant" != "Y" ]; then
 		echo
@@ -50,18 +52,19 @@ Are you going to continue (N/y)? " -n 1 t_ant
 	echo
 fi
 
-echo "report generating..."
+echo "generating SOS report..."
 SOSFILE=$(sudo sos report -o revpi,revpi-eep,revpi-codesys --batch | grep "/sosreport-.*\.tar" | sed -e 's/^[ \t]*//')
 echo
-echo "Your report has been generated and saved in:"
+echo "Your SOS report has been generated and saved to:"
 echo "$SOSFILE"
 echo
 
 if [ "$FORCE" != "1" ]; then
-	read -rp "To make the report have better accessibility, the ownership of the report
-can be changed to the current user.
-
-Are you going to proceed(N/y)? " -n 1 t_ant
+	cat <<- __EOF__
+	To make the SOS report accessible for your user "$USER" the ownership needs
+	to be changed.
+	__EOF__
+	read -rn1 -p "Change the ownership? (y/N)" t_ant
 	if [ "$t_ant" != "y" ] && [ "$t_ant" != "Y" ]; then
 		echo
 		exit 0
