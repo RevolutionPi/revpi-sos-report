@@ -17,6 +17,12 @@ install(FILES plugins/revpi.py plugins/revpi-eep.py plugins/revpi-codesys.py
   DESTINATION ${Python3_SITELIB}/sos/report/plugins/
 )
 
-install(FILES revpi-sos.1
-  DESTINATION ${CMAKE_INSTALL_MANDIR}/man1
+add_custom_target(
+  revpi-sos.1 ALL
+  COMMAND scdoc < ${CMAKE_SOURCE_DIR}/revpi-sos.1.scd > ${PROJECT_BINARY_DIR}/revpi-sos.1
+  DEPENDS ${CMAKE_SOURCE_DIR}/revpi-sos.1.scd
+)
+
+install(FILES ${PROJECT_BINARY_DIR}/revpi-sos.1
+  DESTINATION ${CMAKE_INSTALL_MANDIR}/man8/
 )
