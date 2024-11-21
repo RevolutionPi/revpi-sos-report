@@ -10,7 +10,8 @@ Build-Depends:
   debhelper-compat (= 13),
   dh-python,
   python3-dev,
-  cmake
+  cmake,
+  scdoc,
 Standards-Version: 4.6.2
 
 Package: revpi-sos-report
