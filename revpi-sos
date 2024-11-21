@@ -5,33 +5,45 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 #
 
-ret=1
-force=0
+usage() {
+	cat <<- __EOF__
+	usage: $(basename $0) [-f]
 
-while getopts ":fh" OPTION; do
-	case ${OPTION} in
+	Generate an archive of useful information for debugging.
+
+	Options:
+	  -f    Skip user interaction
+	  -h    Show this help
+	__EOF__
+
+	exit ${1:-0}
+}
+
+FORCE=0
+
+while getopts ":fh" opt; do
+	case "${opt}" in
 	f)
-		force=1
+		FORCE=1
 		;;
 	h)
-		ret=0
-		;&
+		usage
+		;;
 	*)
-		echo "Usage: revpi-sos [OPTION...]"
-		echo "  -f	execute without confirmation"
-		echo "  -h	give this help list"
-		exit $ret
+		usage 1 >&2
 		;;
 	esac
-
 done
 
-if [ "$force" != "1" ]; then
-	read -rp "The report will be generated as a compressed TAR file, which
-can be extracted with command: tar -Jxvf xxx.tar.xz in linux or 7zip in Windows.
-And then some inspection can be done before it is sent to support@kunbus.com.
+cat <<- __EOF__
+The generated report will be a compressed TAR. This can be extracted with
+the command "tar -zxvf /path/to/sos-report.gar.gz" on Linux or using the
+program "7zip" on Windows.
+This archive can be inspected before sending it to support@kunbus.com
+__EOF__
 
-Are you going to continue (N/y)? " -n 1 t_ant
+if [ "$FORCE" != "1" ]; then
+	read -rn1 -p "Continue? (y/N)" t_ant
 
 	if [ "$t_ant" != "y" ] && [ "$t_ant" != "Y" ]; then
 		echo
@@ -40,18 +52,25 @@ Are you going to continue (N/y)? " -n 1 t_ant
 	echo
 fi
 
-echo "report generating..."
-SOSFILE=$(sudo sos report -o revpi,revpi-eep,revpi-codesys --batch | grep "/sosreport-.*\.tar" | sed -e 's/^[ \t]*//')
+echo "generating SOS report..."
+SOSFILE="$(sudo sos report -o revpi,revpi-eep,revpi-codesys --batch)"
+if [ "$?" -ne 0 ]; then
+	echo "An error occurred while generating the SOS report." >&2
+	exit 1
+fi
+SOSFILE="$(echo "$SOSFILE" | grep "/sosreport-.*\.tar" | sed -e 's/^[ \t]*//')"
+
 echo
-echo "Your report has been generated and saved in:"
+echo "Your SOS report has been generated and saved to:"
 echo "$SOSFILE"
 echo
 
-if [ "$force" != "1" ]; then
-	read -rp "To make the report have better accessibility, the ownership of the report
-can be changed to the current user.
-
-Are you going to proceed(N/y)? " -n 1 t_ant
+if [ "$FORCE" != "1" ]; then
+	cat <<- __EOF__
+	To make the SOS report accessible for your user "$USER" the ownership needs
+	to be changed.
+	__EOF__
+	read -rn1 -p "Change the ownership? (y/N)" t_ant
 	if [ "$t_ant" != "y" ] && [ "$t_ant" != "Y" ]; then
 		echo
 		exit 0
