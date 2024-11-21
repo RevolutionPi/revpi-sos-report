@@ -19,12 +19,12 @@ usage() {
 	exit ${1:-0}
 }
 
-force=0
+FORCE=0
 
-while getopts ":fh" OPTION; do
-	case ${OPTION} in
+while getopts ":fh" opt; do
+	case "${opt}" in
 	f)
-		force=1
+		FORCE=1
 		;;
 	h)
 		usage
@@ -36,7 +36,7 @@ while getopts ":fh" OPTION; do
 
 done
 
-if [ "$force" != "1" ]; then
+if [ "$FORCE" != "1" ]; then
 	read -rp "The report will be generated as a compressed TAR file, which
 can be extracted with command: tar -zxvf xxx.tar.gz in linux or 7zip in Windows.
 And then some inspection can be done before it is sent to support@kunbus.com.
@@ -57,7 +57,7 @@ echo "Your report has been generated and saved in:"
 echo "$SOSFILE"
 echo
 
-if [ "$force" != "1" ]; then
+if [ "$FORCE" != "1" ]; then
 	read -rp "To make the report have better accessibility, the ownership of the report
 can be changed to the current user.
 
