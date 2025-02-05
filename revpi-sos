@@ -37,7 +37,7 @@ done
 
 cat <<- __EOF__
 The generated report will be a compressed TAR. This can be extracted with
-the command "tar -zxvf /path/to/sos-report.gar.gz" on Linux or using the
+the command "tar -zxvf /path/to/sos-report.tar.gz" on Linux or using the
 program "7zip" on Windows.
 This archive can be inspected before sending it to support@kunbus.com
 __EOF__
