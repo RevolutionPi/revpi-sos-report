@@ -56,6 +56,7 @@ report. If a file is not present it's inclusion into the report is skipped.
 - /etc/network/interfaces.d/\*
 - /etc/resolv.conf
 - /sys/bus/serial/drivers/pi-bridge/stats/\*
+- /proc/tty/driver/ttyAMA
 - /etc/CODESYSControl.cfg
 - /etc/CODESYSControl_user.cfg
 - /tmp/codesyscontrol.log
