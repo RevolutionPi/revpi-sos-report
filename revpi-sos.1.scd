@@ -42,10 +42,10 @@ information about the system that is included in an SOS report.
 The following is a list of files that *revpi-sos* collects and packs into a SOS
 report. If a file is not present it's inclusion into the report is skipped.
 
-- /var/log/syslog
+- /var/log/syslog\*
 - /var/log/apache2/error.log
 - /var/log/apache2/revpi-\*-error.log
-- /var/log/kern.log
+- /var/log/kern.log\*
 - /etc/revpi/config.rsc
 - /boot/firmare/cmdline.txt
 - /boot/firmware/config.txt
