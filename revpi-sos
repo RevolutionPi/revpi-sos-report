@@ -45,11 +45,10 @@ __EOF__
 if [ "$FORCE" != "1" ]; then
 	read -rn1 -p "Continue? (y/N)" t_ant
 
+	echo
 	if [ "$t_ant" != "y" ] && [ "$t_ant" != "Y" ]; then
-		echo
 		exit 0
 	fi
-	echo
 fi
 
 echo "generating SOS report..."
@@ -71,11 +70,10 @@ if [ "$FORCE" != "1" ]; then
 	to be changed.
 	__EOF__
 	read -rn1 -p "Change the ownership? (y/N)" t_ant
+	echo
 	if [ "$t_ant" != "y" ] && [ "$t_ant" != "Y" ]; then
-		echo
 		exit 0
 	fi
-	echo
 fi
 
 sudo chown "$USER" "$SOSFILE"
