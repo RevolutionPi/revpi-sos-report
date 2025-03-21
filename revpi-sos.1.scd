@@ -88,6 +88,7 @@ report. If a file is not present it's inclusion into the report is skipped.
 - modinfo piControl
 - cat /sys/devices/system/cpu/cpu?/cpufreq/scaling_governor
 - revpi-device-info
+- dpkg -l
 
 # EXAMPLES
 

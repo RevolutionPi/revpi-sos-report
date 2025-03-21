@@ -68,6 +68,7 @@ class RevPi(Plugin, DebianPlugin):
                 "vcgencmd version",
                 "modinfo piControl",
                 "cat /sys/devices/system/cpu/cpu?/cpufreq/scaling_governor",
+                "dpkg -l",
             ]
         )
 
