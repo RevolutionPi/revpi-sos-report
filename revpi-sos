@@ -57,7 +57,7 @@ if [ "$?" -ne 0 ]; then
 	echo "An error occurred while generating the SOS report." >&2
 	exit 1
 fi
-SOSFILE="$(echo "$SOSFILE" | grep "/sosreport-.*\.tar" | sed -e 's/^[ \t]*//')"
+SOSFILE="$(echo "$SOSFILE" | grep -E "/sosreport-.*\.tar" | sed -e 's/^[ \t]*//')"
 
 echo
 echo "Your SOS report has been generated and saved to:"
