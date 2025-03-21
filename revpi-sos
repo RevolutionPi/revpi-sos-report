@@ -53,7 +53,7 @@ if [ "$FORCE" != "1" ]; then
 fi
 
 echo "generating SOS report..."
-SOSFILE="$(sudo sos report -o revpi,revpi-eep,revpi-codesys --batch)"
+SOSFILE="$(sudo sos report -z gzip -o revpi,revpi-eep,revpi-codesys --batch)"
 if [ "$?" -ne 0 ]; then
 	echo "An error occurred while generating the SOS report." >&2
 	exit 1
