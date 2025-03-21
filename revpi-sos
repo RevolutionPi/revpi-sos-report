@@ -7,7 +7,7 @@
 
 usage() {
 	cat <<- __EOF__
-	usage: $(basename $0) [-f]
+	usage: $(basename "$0") [-f]
 
 	Generate an archive of useful information for debugging.
 
@@ -16,7 +16,7 @@ usage() {
 	  -h    Show this help
 	__EOF__
 
-	exit ${1:-0}
+	exit "${1:-0}"
 }
 
 FORCE=0
