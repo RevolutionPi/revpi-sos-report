@@ -40,7 +40,7 @@ information about the system that is included in an SOS report.
 ## Files
 
 The following is a list of files that *revpi-sos* collects and packs into a SOS
-report. If a file is not present it's inclusion into the report is skipped.
+report. If a file is not present its inclusion into the report is skipped.
 
 - /var/log/syslog\*
 - /var/log/apache2/error.log
