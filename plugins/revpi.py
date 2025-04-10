@@ -40,6 +40,10 @@ class RevPi(Plugin, DebianPlugin):
                 "/etc/network/interfaces.d/*",
                 "/etc/resolv.conf",
                 "/sys/bus/serial/drivers/pi-bridge/stats/*",
+                "/sys/class/net/*/carrier",
+                "/sys/class/net/*/speed",
+                "/sys/class/net/*/duplex",
+                "/sys/devices/system/cpu/cpu*/cpufreq/scaling_governor",
                 "/proc/tty/driver/ttyAMA",
                 "/home/pi/.revpi-factory-reset",
             ]
@@ -71,7 +75,6 @@ class RevPi(Plugin, DebianPlugin):
                 "vclog -m",
                 "vcgencmd version",
                 "modinfo piControl",
-                "cat /sys/devices/system/cpu/cpu?/cpufreq/scaling_governor",
                 "dpkg -l",
             ]
         )
