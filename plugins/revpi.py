@@ -36,6 +36,7 @@ class RevPi(Plugin, DebianPlugin):
                 "/etc/dhcpcd.conf",
                 "/etc/network/interfaces",
                 "/etc/resolv.conf",
+                "/home/pi/.revpi-factory-reset",
             ]
         )
 
