@@ -34,12 +34,14 @@ class RevPi(Plugin, DebianPlugin):
                 "/boot/firmware/config.txt",
                 "/etc/default/rpi-eeprom-update",
                 "/etc/revpi/image-release",
+                "/etc/revpi/factory-reset",
                 "/etc/dhcpcd.conf",
                 "/etc/network/interfaces",
                 "/etc/network/interfaces.d/*",
                 "/etc/resolv.conf",
                 "/sys/bus/serial/drivers/pi-bridge/stats/*",
                 "/proc/tty/driver/ttyAMA",
+                "/home/pi/.revpi-factory-reset",
             ]
         )
 
