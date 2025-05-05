@@ -1,13 +1,13 @@
 #!/bin/bash
 #
-# SPDX-FileCopyrightText: 2020-2024 KUNBUS GmbH
+# SPDX-FileCopyrightText: 2020-2025 KUNBUS GmbH
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 #
 
 usage() {
 	cat <<- __EOF__
-	usage: $(basename $0) [-f]
+	usage: $(basename "$0") [-f]
 
 	Generate an archive of useful information for debugging.
 
@@ -16,7 +16,7 @@ usage() {
 	  -h    Show this help
 	__EOF__
 
-	exit ${1:-0}
+	exit "${1:-0}"
 }
 
 FORCE=0
@@ -37,7 +37,7 @@ done
 
 cat <<- __EOF__
 The generated report will be a compressed TAR. This can be extracted with
-the command "tar -zxvf /path/to/sos-report.gar.gz" on Linux or using the
+the command "tar -zxvf /path/to/sos-report.tar.gz" on Linux or using the
 program "7zip" on Windows.
 This archive can be inspected before sending it to support@kunbus.com
 __EOF__
@@ -45,20 +45,19 @@ __EOF__
 if [ "$FORCE" != "1" ]; then
 	read -rn1 -p "Continue? (y/N)" t_ant
 
+	echo
 	if [ "$t_ant" != "y" ] && [ "$t_ant" != "Y" ]; then
-		echo
 		exit 0
 	fi
-	echo
 fi
 
 echo "generating SOS report..."
-SOSFILE="$(sudo sos report -o revpi,revpi-eep,revpi-codesys --batch)"
+SOSFILE="$(sudo sos report -qz gzip --all-logs -o revpi,revpi-eep,revpi-codesys --batch)"
 if [ "$?" -ne 0 ]; then
 	echo "An error occurred while generating the SOS report." >&2
 	exit 1
 fi
-SOSFILE="$(echo "$SOSFILE" | grep "/sosreport-.*\.tar" | sed -e 's/^[ \t]*//')"
+SOSFILE="$(echo "$SOSFILE" | grep -E "/sosreport-.*\.tar" | sed -e 's/^[ \t]*//')"
 
 echo
 echo "Your SOS report has been generated and saved to:"
@@ -71,11 +70,10 @@ if [ "$FORCE" != "1" ]; then
 	to be changed.
 	__EOF__
 	read -rn1 -p "Change the ownership? (y/N)" t_ant
+	echo
 	if [ "$t_ant" != "y" ] && [ "$t_ant" != "Y" ]; then
-		echo
 		exit 0
 	fi
-	echo
 fi
 
 sudo chown "$USER" "$SOSFILE"

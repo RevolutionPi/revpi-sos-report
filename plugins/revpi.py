@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2020-2024 KUNBUS GmbH
+# SPDX-FileCopyrightText: 2020-2025 KUNBUS GmbH
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 #
@@ -25,19 +25,27 @@ class RevPi(Plugin, DebianPlugin):
     def setup(self):
         self.add_copy_spec(
             [
-                "/var/log/syslog",
+                "/var/log/syslog*",
                 "/var/log/apache2/error.log",
                 "/var/log/apache2/revpi-*-error.log",
-                "/var/log/kern.log",
+                "/var/log/kern.log*",
                 "/etc/revpi/config.rsc",
                 "/boot/firmware/cmdline.txt",
                 "/boot/firmware/config.txt",
                 "/etc/default/rpi-eeprom-update",
                 "/etc/revpi/image-release",
+                "/etc/revpi/factory-reset",
                 "/etc/dhcpcd.conf",
                 "/etc/network/interfaces",
                 "/etc/network/interfaces.d/*",
                 "/etc/resolv.conf",
+                "/sys/bus/serial/drivers/pi-bridge/stats/*",
+                "/sys/class/net/*/carrier",
+                "/sys/class/net/*/speed",
+                "/sys/class/net/*/duplex",
+                "/sys/devices/system/cpu/cpu*/cpufreq/scaling_governor",
+                "/proc/tty/driver/ttyAMA",
+                "/home/pi/.revpi-factory-reset",
             ]
         )
 
@@ -67,7 +75,7 @@ class RevPi(Plugin, DebianPlugin):
                 "vclog -m",
                 "vcgencmd version",
                 "modinfo piControl",
-                "cat /sys/devices/system/cpu/cpu?/cpufreq/scaling_governor",
+                "dpkg -l",
             ]
         )
 
