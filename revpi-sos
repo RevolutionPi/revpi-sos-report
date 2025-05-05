@@ -41,7 +41,7 @@ Are you going to continue (N/y)? " -n 1 t_ant
 fi
 
 echo "report generating..."
-SOSFILE=$(sudo sos report -o revpi,revpi-eep,revpi-codesys --batch | grep "/sosreport-.*\.tar" | sed -e 's/^[ \t]*//')
+SOSFILE=$(sudo sos --all-logs report -o revpi,revpi-eep,revpi-codesys --batch | grep "/sosreport-.*\.tar" | sed -e 's/^[ \t]*//')
 echo
 echo "Your report has been generated and saved in:"
 echo "$SOSFILE"
