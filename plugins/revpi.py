@@ -1,7 +1,7 @@
 #
-# SPDX-License-Identifier: GPL-2.0
+# SPDX-FileCopyrightText: 2020-2023 KUNBUS GmbH
 #
-# Copyright 2020-2023 KUNBUS GmbH
+# SPDX-License-Identifier: GPL-2.0-or-later
 #
 
 
@@ -36,6 +36,11 @@ class RevPi(Plugin, DebianPlugin):
                 "/etc/dhcpcd.conf",
                 "/etc/network/interfaces",
                 "/etc/resolv.conf",
+                "/sys/class/net/*/carrier",
+                "/sys/class/net/*/speed",
+                "/sys/class/net/*/duplex",
+                "/sys/devices/system/cpu/cpu*/cpufreq/scaling_governor",
+                "/home/pi/.revpi-factory-reset",
             ]
         )
 
@@ -60,7 +65,6 @@ class RevPi(Plugin, DebianPlugin):
                 "netstat -ln",
                 "vcgencmd version",
                 "modinfo piControl",
-                "cat /sys/devices/system/cpu/cpu?/cpufreq/scaling_governor",
             ]
         )
 
