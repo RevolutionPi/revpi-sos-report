@@ -1,3 +1,20 @@
+revpi-sos-report (1.3.0-1+revpi11+1) bullseye; urgency=medium
+
+  [ Thomas Böhler ]
+  * chore: achieve REUSE compliance
+
+  [ Ahmad Arabi Katbi ]
+  * feat: Change upstream branch to 1.x
+
+  [ Nicolai Buchwitz ]
+  * feat: Collect factory reset information
+  * feat: Collect network interface status
+
+  [ Thomas Böhler ]
+  * fix: disable size limit of logs
+
+ -- Thomas Böhler <t.boehler@kunbus.com>  Mon, 05 May 2025 10:05:22 +0200
+
 revpi-sos-report (1.2.0-1+revpi11+1) bullseye; urgency=medium
 
   [ Nicolai Buchwitz ]
