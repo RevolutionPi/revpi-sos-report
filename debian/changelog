@@ -1,3 +1,34 @@
+revpi-sos-report (2.2.0-1+deb12+1) bookworm; urgency=medium
+
+  [ Sven Sager ]
+  * refactor: Fix typo in tar.gz extension
+
+  [ Thomas Böhler ]
+  * fix: also collect rotated logs
+  * feat: list installed packages with version
+  * feat: collect pibridge statistics
+
+  [ Nicolai Buchwitz ]
+  * feat: Add tty rx / tx counters to sos report
+
+  [ Thomas Böhler ]
+  * chore: update copyright dates
+  * fix: actually use gzip compression for sos report
+  * chore: avoid unnecessary information from sos
+  * refactor: avoid redundant echo in revpi-sos
+  * fix(revpi-sos): quote variable expansion
+  * fix(revpi-sos): use grep -E for regex
+  * doc(revpi-sos.1): no apostrophe for "its"
+
+  [ Nicolai Buchwitz ]
+  * feat: Collect factory reset information
+  * feat: Collect network interface status
+
+  [ Thomas Böhler ]
+  * fix: disable size limit of logs
+
+ -- Thomas Böhler <t.boehler@kunbus.com>  Mon, 05 May 2025 09:53:07 +0200
+
 revpi-sos-report (2.1.0-1+deb12+1) bookworm; urgency=medium
 
   [ Amar Jadhav ]
