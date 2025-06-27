@@ -1,3 +1,16 @@
+revpi-sos-report (1.3.2-1+revpi11+1) bullseye; urgency=medium
+
+  [ Thomas Böhler ]
+  * feat: collect pibridge statistics
+
+  [ Ramiro Gsponer ]
+  * fix: Update sos-report info
+
+  [ Ahmad Arabi Katbi ]
+  * feat: Collect info of all files in `interfaces.d`
+
+ -- Ramiro Gsponer <r.gsponer@kunbus.com>  Fri, 27 Jun 2025 12:21:40 +0200
+
 revpi-sos-report (1.3.1-1+revpi11+1) bullseye; urgency=medium
 
   * fix: options follow "sos report" invocation
