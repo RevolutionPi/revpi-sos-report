@@ -35,12 +35,14 @@ class RevPi(Plugin, DebianPlugin):
                 "/etc/revpi/image-release",
                 "/etc/dhcpcd.conf",
                 "/etc/network/interfaces",
+                "/etc/network/interfaces.d/*",
                 "/etc/resolv.conf",
                 "/sys/class/net/*/carrier",
                 "/sys/class/net/*/speed",
                 "/sys/class/net/*/duplex",
                 "/sys/devices/system/cpu/cpu*/cpufreq/scaling_governor",
                 "/home/pi/.revpi-factory-reset",
+                "/sys/bus/serial/drivers/pi-bridge/stats/*",
             ]
         )
 
