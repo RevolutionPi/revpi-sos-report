@@ -44,6 +44,8 @@ class RevPi(Plugin, DebianPlugin):
                 "/sys/class/net/*/speed",
                 "/sys/class/net/*/duplex",
                 "/sys/devices/system/cpu/cpu*/cpufreq/scaling_governor",
+                "/sys/block/mmcblk0/device/life_time",
+                "/sys/block/mmcblk0/device/pre_eol_info",
                 "/proc/tty/driver/ttyAMA",
                 "/home/pi/.revpi-factory-reset",
             ]
