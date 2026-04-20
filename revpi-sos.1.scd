@@ -99,7 +99,6 @@ report. If a file is not present its inclusion into the report is skipped.
 - vclog -m
 - vcgencmd version
 - modinfo piControl
-- cat /sys/devices/system/cpu/cpu?/cpufreq/scaling_governor
 - revpi-device-info
 - dpkg -l
 
