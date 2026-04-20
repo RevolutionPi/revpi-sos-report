@@ -58,6 +58,8 @@ report. If a file is not present its inclusion into the report is skipped.
 - /sys/bus/serial/drivers/pi-bridge/stats/\*
 - /proc/tty/driver/ttyAMA
 - /usr/share/revpi/factory-reset
+- /usr/share/revpi/devinfo/serial-number
+- /usr/share/revpi/devinfo/base-mac-address
 - /etc/CODESYSControl.cfg
 - /etc/CODESYSControl_user.cfg
 - /tmp/codesyscontrol.log

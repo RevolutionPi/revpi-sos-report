@@ -49,6 +49,8 @@ class RevPi(Plugin, DebianPlugin):
                 "/proc/tty/driver/ttyAMA",
                 "/home/pi/.revpi-factory-reset",
                 "/usr/share/revpi/factory-reset",
+                "/usr/share/revpi/devinfo/serial-number",
+                "/usr/share/revpi/devinfo/base-mac-address",
             ]
         )
 
