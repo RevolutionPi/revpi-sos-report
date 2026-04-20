@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2020-2025 KUNBUS GmbH
+# SPDX-FileCopyrightText: 2020-2026 KUNBUS GmbH
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 #
@@ -48,6 +48,7 @@ class RevPi(Plugin, DebianPlugin):
                 "/sys/block/mmcblk0/device/pre_eol_info",
                 "/proc/tty/driver/ttyAMA",
                 "/home/pi/.revpi-factory-reset",
+                "/usr/share/revpi/factory-reset",
             ]
         )
 

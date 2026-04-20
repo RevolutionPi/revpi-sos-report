@@ -57,6 +57,7 @@ report. If a file is not present its inclusion into the report is skipped.
 - /etc/resolv.conf
 - /sys/bus/serial/drivers/pi-bridge/stats/\*
 - /proc/tty/driver/ttyAMA
+- /usr/share/revpi/factory-reset
 - /etc/CODESYSControl.cfg
 - /etc/CODESYSControl_user.cfg
 - /tmp/codesyscontrol.log
