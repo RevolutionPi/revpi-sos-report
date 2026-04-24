@@ -1,3 +1,17 @@
+revpi-sos-report (2.3.0-1+deb13+1) trixie; urgency=medium
+
+  [ Nicolai Buchwitz ]
+  * feat: Collect emmc wear level indicators
+  * feat: Collect throttle status from vc firmware
+
+  [ Thomas Böhler ]
+  * feat: collect factory-reset flag for trixie
+  * feat: collect new devinfo files
+  * doc: add missing collected files
+  * doc: remove outdated commands
+
+ -- Sven Sager <s.sager@kunbus.com>  Fri, 24 Apr 2026 08:37:43 +0200
+
 revpi-sos-report (2.2.0-1+deb13+1) trixie; urgency=medium
 
   * Initial release for trixie
