@@ -1,4 +1,4 @@
-revpi-sos(1)
+revpi-sos(8)
 
 # NAME
 
