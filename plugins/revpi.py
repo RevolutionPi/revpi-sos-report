@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2020-2025 KUNBUS GmbH
+# SPDX-FileCopyrightText: 2020-2026 KUNBUS GmbH
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 #
@@ -44,8 +44,13 @@ class RevPi(Plugin, DebianPlugin):
                 "/sys/class/net/*/speed",
                 "/sys/class/net/*/duplex",
                 "/sys/devices/system/cpu/cpu*/cpufreq/scaling_governor",
+                "/sys/block/mmcblk0/device/life_time",
+                "/sys/block/mmcblk0/device/pre_eol_info",
                 "/proc/tty/driver/ttyAMA",
                 "/home/pi/.revpi-factory-reset",
+                "/usr/share/revpi/factory-reset",
+                "/usr/share/revpi/devinfo/serial-number",
+                "/usr/share/revpi/devinfo/base-mac-address",
             ]
         )
 
@@ -61,6 +66,10 @@ class RevPi(Plugin, DebianPlugin):
                 "ls -l /etc/revpi/config.rsc",
                 "vcgencmd measure_temp",
                 "vcgencmd measure_clock arm",
+                "vcgencmd get_throttled",
+                "vcgencmd version",
+                "vclog -a",
+                "vclog -m",
                 "journalctl --no-pager -u cockpit",
                 "lsusb -v",
                 "free",
@@ -71,9 +80,6 @@ class RevPi(Plugin, DebianPlugin):
                 "apt-cache show linux-image-revpi-v8",
                 "netstat -ln",
                 "rpi-eeprom-update",
-                "vclog -a",
-                "vclog -m",
-                "vcgencmd version",
                 "modinfo piControl",
                 "dpkg -l",
             ]
