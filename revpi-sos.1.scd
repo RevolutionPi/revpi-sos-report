@@ -51,12 +51,23 @@ report. If a file is not present its inclusion into the report is skipped.
 - /boot/firmware/config.txt
 - /etc/default/rpi-eeprom-update
 - /etc/revpi/image-release
+- /etc/revpi/factory-reset
 - /etc/dhcpcd.conf
 - /etc/network/interfaces
 - /etc/network/interfaces.d/\*
 - /etc/resolv.conf
 - /sys/bus/serial/drivers/pi-bridge/stats/\*
+- /sys/class/net/\*/carrier
+- /sys/class/net/\*/speed
+- /sys/class/net/\*/duplex
+- /sys/devices/system/cpu/cpu\*/cpufreq/scaling_governor
+- /sys/block/mmcblk0/device/life_time
+- /sys/block/mmcblk0/device/pre_eol_info
 - /proc/tty/driver/ttyAMA
+- /home/pi/.revpi-factory-reset
+- /usr/share/revpi/factory-reset
+- /usr/share/revpi/devinfo/serial-number
+- /usr/share/revpi/devinfo/base-mac-address
 - /etc/CODESYSControl.cfg
 - /etc/CODESYSControl_user.cfg
 - /tmp/codesyscontrol.log
@@ -88,7 +99,6 @@ report. If a file is not present its inclusion into the report is skipped.
 - vclog -m
 - vcgencmd version
 - modinfo piControl
-- cat /sys/devices/system/cpu/cpu?/cpufreq/scaling_governor
 - revpi-device-info
 - dpkg -l
 
