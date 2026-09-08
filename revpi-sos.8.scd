@@ -1,5 +1,8 @@
 revpi-sos(8)
 
+; SPDX-FileCopyrightText: 2016-2025 KUNBUS GmbH
+; SPDX-License-Identifier: GPL-2.0-or-later
+
 # NAME
 
 revpi-sos - collect information for RevPi related problems debugging
