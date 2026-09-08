@@ -39,6 +39,7 @@ class RevPi(Plugin, DebianPlugin):
                 "/etc/network/interfaces",
                 "/etc/network/interfaces.d/*",
                 "/etc/resolv.conf",
+                "/etc/fstab",
                 "/sys/bus/serial/drivers/pi-bridge/stats/*",
                 "/sys/class/net/*/carrier",
                 "/sys/class/net/*/speed",
